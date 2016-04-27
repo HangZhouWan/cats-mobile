@@ -62,7 +62,7 @@ function renderTable(){
 	var width = document.documentElement.clientWidth;
 	var height = document.documentElement.clientHeight;
 	console.log(width,height);
-	var cellWidth = 100,cellHight = 100;
+	var cellWidth = 150,cellHight = 150;
 	var cols = Math.round((width-200)/cellWidth);
 	var rows = Math.round((height-200)/cellHight);
 	var tbody = document.createElement("tbody");
@@ -73,7 +73,7 @@ function renderTable(){
 		tbody.appendChild(tr);
 		for(var j = 0 ;j<cols;j++){
 			var td = document.createElement("td");
-			td.style.cssText = 'width:100px;height:100px;position:relative;overflow:hidden';
+			td.style.cssText = 'width:150px;height:150px;position:relative;overflow:hidden';
 			tr.appendChild(td);
 		}
 	}
@@ -113,14 +113,14 @@ function posOut(){
 			height = height+1;
 			hole.style.width = width+"px";
 			hole.style.height = height+"px";
-			if(width == 100){
+			if(width == 150){
 				clearInterval(hole.growUp);
 				creatCat();
 			}
 	}
 	//猫洞结束调用猫猫上升函数
 	function creatCat(){
-		cat.style.cssText = "position:absolute;bottom:-80px;left:20px;cursor:pointer;" 
+		cat.style.cssText = "position:absolute;bottom:-80px;left:30px;cursor:pointer;width:100px;" 
 		cat.src = "cat.png";
 		td[pos].appendChild(cat);
 		var flag = false;
@@ -149,7 +149,7 @@ function posOut(){
 		var bottom =parseInt(cat.style.bottom);
 		bottom = bottom -1;
 		cat.style.bottom = bottom+"px";
-		if(bottom == -100){
+		if(bottom == -120){
 			clearInterval(cat.down);
 			hole.down = setInterval(holesDown,10);
 		}
