@@ -62,7 +62,7 @@ function renderTable(){
 	var width = document.documentElement.clientWidth;
 	var height = document.documentElement.clientHeight;
 	console.log(width,height);
-	var cellWidth = 100,cellHight = 100;
+	var cellWidth = 160,cellHight = 150;
 	var cols = Math.round((width-200)/cellWidth);
 	var rows = Math.round((height-200)/cellHight);
 	var tbody = document.createElement("tbody");
@@ -73,7 +73,7 @@ function renderTable(){
 		tbody.appendChild(tr);
 		for(var j = 0 ;j<cols;j++){
 			var td = document.createElement("td");
-			td.style.cssText = 'width:100px;height:100px;position:relative;overflow:hidden';
+			td.style.cssText = 'width:'+cellWidth+'px;height:'+cellHight+'px;position:relative;overflow:hidden';
 			tr.appendChild(td);
 		}
 	}
@@ -103,7 +103,7 @@ function posOut(){
 	hole.style.cssText = "position:absolute;height:1px;width:10px; border-radius:100px/30px;bottom:0;background-color:black;opacity:1;"; 
 	if(td[pos].firstChild==null){
 		td[pos].appendChild(hole);
-		hole.growUp = setInterval(holeGrowUp,10);
+		hole.growUp = setInterval(holeGrowUp,8);
 	}
 	//猫洞产生
 	function holeGrowUp(){
@@ -113,14 +113,14 @@ function posOut(){
 			height = height+1;
 			hole.style.width = width+"px";
 			hole.style.height = height+"px";
-			if(width == 100){
+			if(width == 151){
 				clearInterval(hole.growUp);
 				creatCat();
 			}
 	}
 	//猫洞结束调用猫猫上升函数
 	function creatCat(){
-		cat.style.cssText = "position:absolute;bottom:-80px;left:20px;cursor:pointer;" 
+		cat.style.cssText = "position:absolute;bottom:-80px;left:30px;cursor:pointer;width:100px" 
 		cat.src = "cat.png";
 		td[pos].appendChild(cat);
 		var flag = false;
@@ -132,7 +132,7 @@ function posOut(){
 		var bottom =parseInt(cat.style.bottom);
 		bottom = bottom+1;
 		cat.style.bottom = bottom+"px";
-		if(bottom == 2){
+		if(bottom == 3){
 			clearInterval(cat.grow);
 			setTimeout(Interval,500);		
 		}
@@ -149,7 +149,7 @@ function posOut(){
 		var bottom =parseInt(cat.style.bottom);
 		bottom = bottom -1;
 		cat.style.bottom = bottom+"px";
-		if(bottom == -100){
+		if(bottom == -135){
 			clearInterval(cat.down);
 			hole.down = setInterval(holesDown,10);
 		}
@@ -200,7 +200,7 @@ function posOut(){
 				Coupon.style.width = CouponWidth+"px";
 				Coupon.style.height = CouponHeight+"px";
 				Coupon.style.left = left+"px";
-				if(CouponWidth==150){
+				if(CouponWidth==300){
 					clearInterval(Coupon.grow);
 				}
 			}
