@@ -103,7 +103,7 @@ function posOut(){
 	hole.style.cssText = "position:absolute;height:1px;width:10px; border-radius:100px/30px;bottom:0;background-color:black;opacity:1;"; 
 	if(td[pos].firstChild==null){
 		td[pos].appendChild(hole);
-		hole.growUp = setInterval(holeGrowUp,10);
+		hole.growUp = setInterval(holeGrowUp,8);
 	}
 	//猫洞产生
 	function holeGrowUp(){
